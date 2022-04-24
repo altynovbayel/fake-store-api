@@ -4,6 +4,7 @@ const $categories = document.querySelector('.categories')
 const $row = document.querySelector('.row')
 const $input = document.querySelector('.srcInput')
 const $select = document.querySelector('.select')
+const $body = document.querySelector('.body')
 
 const baseUrl = 'https://fakestoreapi.com/'
 
@@ -13,7 +14,8 @@ function getRequest(endPoint, cb){
     .then(json => cb(json))
 }
 
-window.addEventListener('l oad', () => {
+window.addEventListener('load', () => {
+  $row.innerHTML = `<div class="lds-circle"><div></div></div>`
   getRequest('products/categories', cb => {
     categoryTemplate(cb)
   })
@@ -94,6 +96,7 @@ function cardTemplate(base){
 
 function getRoute(id){
   $categories.style.display = 'none'
+  $body.classList.remove('body')
   getRequest(`products/${id}`, cb => {
     cardMoreTemplate(cb)
   })
@@ -109,9 +112,9 @@ function cardMoreTemplate(item){
           <h1>${item.title}</h1>
         </div>
         <div class="cardMore_body">
-          <h3>$${item.price}</h3>
           <p>${item.description}</p>
           <h3>rate: ${item.rating.rate}</h3>
+          <h3>$${item.price}</h3>
         </div>
         <div class="cardMore_footer">
           <button class="card_btn_basket" onclick="location.reload()">Exit</button>
