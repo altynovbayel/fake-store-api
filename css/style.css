@@ -1,0 +1,108 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgba(0, 0, 0, .7);
+}
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+.row{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.search{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.srcInput{
+  width: 200px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.categories{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 30px 0;
+  color: white;
+}
+.categories div{
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  transition: .4s;
+  border-radius: 10px;
+}
+.categories div:hover{
+  background-color: slategray;
+  color: #fff;
+}
+.card{
+  width: 360px;
+  min-height: 400px;
+  border: 5px solid slategray;
+  margin: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+
+}
+.card_body img{
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.card_btn, .card_btn_basket, .srcBtn{
+  padding: 12px 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: .5s;
+}
+.card_btn{
+  background-color: rgb(66, 212, 66);
+}
+.card_btn:hover{
+  background-color: green;
+}
+.card_btn_basket{
+  background-color: rgba(207, 207, 19, 0.815);
+}
+.card_btn_basket:hover{
+  background-color: rgba(247, 247, 14, 0.815);;
+}
+.more_img{
+  width: 40%;
+  height: 400px;
+}
+.more_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.moreCard{
+  width: 40%;
+  text-align: center;
+}
+.moreCard div{
+  margin-bottom: 40px;
+}
+.cardMore_body p{
+  margin: 15px 0;
+}
