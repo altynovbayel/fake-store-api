@@ -80,21 +80,16 @@ function categoryTemplate(base){
 }
 
 function getCategory(el){
-  console.log(el);
-  if (el === 'electronics'){
-    getRequest(`products/category/electronics`, cb => {
-      cardTemplate(cb)
-    })
-  }else if(el === 'jewelery'){
-    getRequest(`products/category/jewelery`, cb => {
-      cardTemplate(cb)
-    }) 
-  } else if (el === "men`s clothing") {
+  if (el === "men`s clothing") {
     getRequest(`products/category/men's clothing`, cb => {
       cardTemplate(cb)
     })
   } else if (el === "women`s clothing") {
     getRequest(`products/category/women's clothing`, cb => {
+      cardTemplate(cb)
+    })
+  }else{
+    getRequest(`products/category/${el}`, cb => {
       cardTemplate(cb)
     })
   }
