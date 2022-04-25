@@ -14,11 +14,29 @@ function getRequest(endPoint, cb){
     .then(json => cb(json))
 }
 
+const categoryList = [
+  {
+    title: 'Electronics',
+    route: 'electronics',
+  },
+  {
+    title: 'Jewelery',
+    route: 'jewelery',
+  },
+  {
+    title: 'Men`s clothing',
+    route: "men`s clothing",
+  },
+  {
+    title: 'Women`s clothing',
+    route: "women`s clothing",
+  },
+]
+
 window.addEventListener('load', () => {
   $row.innerHTML = `<div class="lds-circle"><div></div></div>`
-  getRequest('products/categories', cb => {
-    categoryTemplate(cb)
-  })
+  categoryTemplate(categoryList)
+
   getRequest('products', cb => {
     cardTemplate(cb)
   })
@@ -50,9 +68,9 @@ $input.addEventListener('input', e => {
 })
 
 function categoryTemplate(base){
-  const categories = base.map(item => {
+  const categories = base.map(({title, route}) => {
     return `
-      <div onclick="getCategory('${item}')"> ${item}</div>
+      <div onclick="getCategory('${route}')">${title}</div>
     `
   }).join('')
   $categories.innerHTML = categories
@@ -62,12 +80,21 @@ function categoryTemplate(base){
 }
 
 function getCategory(el){
+  console.log(el);
   if (el === 'electronics'){
     getRequest(`products/category/electronics`, cb => {
       cardTemplate(cb)
     })
   }else if(el === 'jewelery'){
     getRequest(`products/category/jewelery`, cb => {
+      cardTemplate(cb)
+    }) 
+  } else if (el === "men`s clothing") {
+    getRequest(`products/category/men's clothing`, cb => {
+      cardTemplate(cb)
+    })
+  } else if (el === "women`s clothing") {
+    getRequest(`products/category/women's clothing`, cb => {
       cardTemplate(cb)
     })
   }
