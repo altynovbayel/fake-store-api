@@ -91,13 +91,17 @@
   background-color: #fff;
 
 }
+
 .card_body img{
   width: 200px;
   height: 200px;
   object-fit: contain;
   margin-bottom: 15px;
+  transition: .5s;
 }
-
+.card_body img:hover{
+  transform: scale(.9);
+}
 .card_btn, .card_btn_basket, .srcBtn{
   padding: 12px 16px;
   border: none;
